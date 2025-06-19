@@ -7,6 +7,6 @@ public class sahneDegistirici : MonoBehaviour
 {
    public static void sahneDegis(int sahne_id)
     {
-        SceneManager.LoadScene(sahne_id);
+        SceneManager.LoadScene(sahne_id,LoadSceneMode.Single);
     }
 }

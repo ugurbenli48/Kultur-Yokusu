@@ -16,13 +16,17 @@ public class KayitOl : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("kayitDurumu"))
         {
+            
             kayit_P.SetActive(true);
             anamenu_P.SetActive(false);
+            
         }
         else
         {
+         
             kayit_P.SetActive(false);
             anamenu_P.SetActive(true);
+           
         }
     }
 
@@ -48,14 +52,15 @@ public class KayitOl : MonoBehaviour
             {
                 textYazdir("Ýnternet Yok");
             }
-    } 
-         public IEnumerator devam_B()
+    }
+    public IEnumerator devam_B()
     {
         PlayerPrefs.SetInt("kayitDurumu", 1);
         yield return new WaitForSeconds(3f);
         kayit_P.SetActive(false);
         anamenu_P.SetActive(true);
     }
+
     public void yenioyun_B ()
     {
         sahneDegistirici.sahneDegis(1);
@@ -76,10 +81,13 @@ public class KayitOl : MonoBehaviour
             }
             else
             {
+                
                 textYazdir(www.downloadHandler.text);
             }
         }
     }
+ 
+
     void textYazdir(string mesaj)
     {
         hata_T.gameObject.SetActive(true);
