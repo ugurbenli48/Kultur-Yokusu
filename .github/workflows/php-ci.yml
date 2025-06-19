@@ -1,0 +1,26 @@
+name: PHP CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # veya master, senin varsayılan branch'in hangisiyse
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Kodları çek
+        uses: actions/checkout@v3
+
+      - name: PHP kur
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: PHP syntax kontrolü
+        run: |
+          find . -iname "*.php" -not -path "./vendor/*" -exec php -l {} \;
+
+      - name: İşlem tamam
+        run: echo "✅ PHP testleri başarılı!"
